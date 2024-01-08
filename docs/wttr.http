@@ -1,0 +1,25 @@
+@scheme=https
+@geo-host=geocoding.geo.census.gov
+@geo-path=geocoder/locations/onelineaddress
+@geo-params=&benchmark=2020&format=json
+@wtr-host=api.weather.gov
+@wtr-path=points
+
+### Geocoding
+GET {{scheme}}://{{geo-host}}/{{geo-path}}
+  ?address=4600%20South%20Redwood%20Road%20Salt%20Lake%20City%20UT%20840123
+  &benchmark=2020
+  &format=json
+User-Agent: web-api-client
+
+### Get with latitude and longitude
+GET {{scheme}}://{{wtr-host}}/{{wtr-path}}/40.6691,-111.9390 HTTP/1.1
+User-Agent: web-api-client
+
+### Get forcast
+GET https://api.weather.gov/gridpoints/SLC/98,171/forecast HTTP/1.1
+User-Agent: web-api-client
+
+### Get hourly forcast
+GET https://api.weather.gov/gridpoints/SLC/98,171/forecast/hourly HTTP/1.1
+User-Agent: web-api-client
